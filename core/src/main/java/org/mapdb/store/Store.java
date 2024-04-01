@@ -18,7 +18,7 @@ public interface Store extends ReadonlyStore{
     }
 
     /** insert new record, returns recid under which record was stored */
-    @NotNull <R> long put(@NotNull R record, @NotNull  Serializer<R> serializer);
+    <R> long put(@NotNull R record, @NotNull  Serializer<R> serializer);
 
     /** updateAtomic existing record with new value */
     <R> void update(long recid, @NotNull  Serializer<R> serializer, @NotNull  R updatedRecord);

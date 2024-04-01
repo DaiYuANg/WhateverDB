@@ -1,0 +1,77 @@
+[versions]
+jdkVersion = "21"
+kotlin = "1.9.23"
+junit = "5.10.2"
+testcontainers = "1.19.7"
+mockito = "5.11.0"
+eclipseCollections = "12.0.0.M3"
+mapstruct = "1.6.0.Beta1"
+asciidoctor = "4.0.2"
+avajeInject = "9.12-RC2"
+picocli = "4.7.5"
+slf4j = "2.1.0-alpha1"
+
+[plugins]
+versionCheck = { id = "com.github.ben-manes.versions", version = "0.51.0" }
+javamodularity = { id = "org.javamodularity.moduleplugin", version = "1.8.15" }
+asciidoctorJvm = { id = "org.asciidoctor.jvm.convert", version.ref = "asciidoctor" }
+asciidoctorGem = { id = "org.asciidoctor.jvm.gems", version.ref = "asciidoctor" }
+asciidoctorEpub = { id = "org.asciidoctor.jvm.epub", version.ref = "asciidoctor" }
+asciidoctorPdf = { id = "org.asciidoctor.jvm.pdf", version.ref = "asciidoctor" }
+asciidoctorRevealjs = { id = "org.asciidoctor.jvm.revealjs", version = "4.0.0-alpha.1" }
+asciidoctorEditconfig = { id = "org.asciidoctor.editorconfig", version.ref = "asciidoctor" }
+lombok = { id = "name.remal.lombok", version = "2.2.5" }
+graalVm = { id = "org.graalvm.buildtools.native", version = "0.10.1" }
+
+[libraries]
+junitBom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
+junitJuiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
+junitApi = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }
+junitEngine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
+junitPlatformSuite = { group = "org.junit.platform", name = "junit-platform-suite", version = "1.10.2" }
+junitPerf = { group = "com.github.noconnor", name = "junitperf-junit5", version = "1.35.0" }
+testcontainersBom = { group = "org.testcontainers", name = "testcontainers-bom", version.ref = "testcontainers" }
+testcontainers = { group = "org.testcontainers", name = "testcontainers", version.ref = "testcontainers" }
+testcontainersJunit = { group = "org.testcontainers", name = "junit-jupiter", version.ref = "testcontainers" }
+testcontainersMysql = { group = "org.testcontainers", name = "mysql", version.ref = "testcontainers" }
+testcontainersMssqlserver = { group = "org.testcontainers", name = "mssqlserver", version.ref = "testcontainers" }
+testcontainersPostgresql = { group = "org.testcontainers", name = "postgresql", version.ref = "testcontainers" }
+mockitoCore = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockitoJunit = { group = "org.mockito", name = "mockito-junit-jupiter", version.ref = "mockito" }
+
+apacheCommonIO = { group = "commons-io", name = "commons-io", version = "2.14.0" }
+apacheCommonLang3 = { group = "org.apache.commons", name = "commons-lang3", version = "3.14.0" }
+apacheCommonPool = { group = "org.apache.commons", name = "commons-pool2", version = "2.12.0" }
+
+jetbrainsAnnotation = { group = "org.jetbrains", name = "annotations", version = "24.1.0" }
+guava = { group = "com.google.guava", name = "guava", version = "33.1.0-jre" }
+
+eclipseCollectionsAPI = { group = "org.eclipse.collections", name = "eclipse-collections-api", version.ref = "eclipseCollections" }
+eclipseCollections = { group = "org.eclipse.collections", name = "eclipse-collections", version.ref = "eclipseCollections" }
+eclipseCollectionsForkjoin = { group = "org.eclipse.collections", name = "eclipse-collections-forkjoin", version.ref = "eclipseCollections" }
+eclipseCollectionsTestUtil = { group = "org.eclipse.collections", name = "eclipse-collections-testutils", version.ref = "eclipseCollections" }
+
+avajeInject = { group = "io.avaje", name = "avaje-inject", version.ref = "avajeInject" }
+avajeInjectTest = { group = "io.avaje", name = "avaje-inject-test", version.ref = "avajeInject" }
+avajeInjectGenerator = { group = "io.avaje", name = "avaje-inject-generator", version.ref = "avajeInject" }
+
+jgrapht = { group = "org.jgrapht", name = "jgrapht-core", version = "1.5.2" }
+fastutil = { group = "it.unimi.dsi", name = "fastutil", version = "8.5.13" }
+pcollections = { group = "org.pcollections", name = "pcollections", version = "4.0.2" }
+h2Mvstore = { group = "com.h2database", name = "h2-mvstore", version = "2.2.224" }
+
+mapstruct = { group = "org.mapstruct", name = "mapstruct", version.ref = "mapstruct" }
+mapstructProcessor = { group = "org.mapstruct", name = "mapstruct-processor", version.ref = "mapstruct" }
+
+picocli = { group = "info.picocli", name = "picocli", version.ref = "picocli" }
+picocliJline = { group = "info.picocli", name = "picocli-shell-jline3", version.ref = "picocli" }
+picocliCodegen = { group = "info.picocli", name = "picocli-codegen", version.ref = "picocli" }
+
+dataFaker = { group = "net.datafaker", name = "datafaker", version = "2.1.0" }
+
+slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4j" }
+slf4jJdkPlatform = { group = "org.slf4j", name = "slf4j-jdk-platform-logging", version.ref = "slf4j" }
+slf4jJulBridage = { group = "org.slf4j", name = "jul-to-slf4j", version.ref = "slf4j" }
+
+oshi = { group = "com.github.oshi", name = "oshi-core-java11", version = "6.5.0" }
+logback = { group = "ch.qos.logback", name = "logback-classic", version = "1.5.3" }

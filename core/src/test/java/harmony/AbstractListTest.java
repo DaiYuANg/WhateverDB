@@ -17,9 +17,13 @@
 
 package harmony;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
-public class AbstractListTest extends junit.framework.TestCase {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AbstractListTest {
 
 	static class SimpleList extends AbstractList {
 		ArrayList arrayList;
@@ -48,6 +52,7 @@ public class AbstractListTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.AbstractList#hashCode()
 	 */
+    @Test
 	public void test_hashCode() {
 		List list = new ArrayList();
 		list.add(new Integer(3));
@@ -61,13 +66,14 @@ public class AbstractListTest extends junit.framework.TestCase {
 			Object obj = i.next();
 			hashCode = 31 * hashCode + (obj == null ? 0 : obj.hashCode());
 		}
-		assertTrue("Incorrect hashCode returned.  Wanted: " + hashCode
-				+ " got: " + list.hashCode(), hashCode == list.hashCode());
+        assertEquals(hashCode, list.hashCode(), "Incorrect hashCode returned.  Wanted: " + hashCode
+                + " got: " + list.hashCode());
 	}
 
 	/**
 	 * @tests java.util.AbstractList#iterator()
 	 */
+    @Test
 	public void test_iterator() {
 		SimpleList list = new SimpleList();
 		list.add(new Object());
@@ -81,6 +87,7 @@ public class AbstractListTest extends junit.framework.TestCase {
 	/**
 	 * @tests java.util.AbstractList#listIterator()
 	 */
+    @Test
 	public void test_listIterator() {
 		Integer tempValue;
 		List list = new ArrayList();
@@ -90,11 +97,10 @@ public class AbstractListTest extends junit.framework.TestCase {
 		list.add(new Integer(1));
 		list.add(new Integer(7));
 		ListIterator lit = list.listIterator();
-		assertTrue("Should not have previous", !lit.hasPrevious());
-		assertTrue("Should have next", lit.hasNext());
+        assertFalse(lit.hasPrevious(), "Should not have previous");
+		assertTrue(lit.hasNext(), "Should have next");
 		tempValue = (Integer) lit.next();
-		assertTrue("next returned wrong value.  Wanted 3, got: " + tempValue,
-				tempValue.intValue() == 3);
+        assertEquals(3, tempValue.intValue(), "next returned wrong value.  Wanted 3, got: " + tempValue);
 		tempValue = (Integer) lit.previous();
 
 		SimpleList list2 = new SimpleList();
@@ -151,17 +157,13 @@ public class AbstractListTest extends junit.framework.TestCase {
 		for (int i = 0; i < 10; i++) {
 			al.add(new Integer(i));
 		}
-		assertTrue(
-				"Sublist returned should have implemented Random Access interface",
-				al.subList(3, 7) instanceof RandomAccess);
+        assertInstanceOf(RandomAccess.class, al.subList(3, 7), "Sublist returned should have implemented Random Access interface");
 
 		List ll = new LinkedList();
 		for (int i = 0; i < 10; i++) {
 			ll.add(new Integer(i));
 		}
-		assertTrue(
-				"Sublist returned should not have implemented Random Access interface",
-				!(ll.subList(3, 7) instanceof RandomAccess));
+        assertFalse(ll.subList(3, 7) instanceof RandomAccess, "Sublist returned should not have implemented Random Access interface");
 
         }
 

@@ -1,5 +1,6 @@
 package org.mapdb.list;
 
+import org.jetbrains.annotations.NotNull;
 import org.mapdb.ser.Serializer;
 import org.mapdb.ser.Serializers;
 import org.mapdb.store.Store;
@@ -41,7 +42,7 @@ public class KernelList<E>
 
         public static <E> KernelList.Maker<E> newList(Store store, Serializer<E> ser) {
             long recid = store.put(new long[]{}, KERNEL_SER);
-            return new KernelList.Maker(store, recid, ser);
+            return new KernelList.Maker<>(store, recid, ser);
         }
 
         public Maker<E> entryStore(Store store){
@@ -91,7 +92,7 @@ public class KernelList<E>
     }
 
     @Override
-    public boolean addAll(Collection<? extends E> c) {
+    public boolean addAll(@NotNull Collection<? extends E> c) {
         long[] kernel = getKernel();
         int pos = kernel.length;
         kernel = Arrays.copyOf(kernel, kernel.length+c.size());

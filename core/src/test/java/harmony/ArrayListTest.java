@@ -18,7 +18,7 @@ package harmony;
 
 import java.util.*;
 
-abstract public class ArrayListTest extends junit.framework.TestCase {
+abstract public class ArrayListTest {
 
     List alist;
 

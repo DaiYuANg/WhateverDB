@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 /** DataInput on top of {@link ByteBuffer} */
 public final class DataInput2ByteBuffer implements DataInput2 {
 
-    protected final ByteBuffer buf;
+    private final ByteBuffer buf;
 
     public DataInput2ByteBuffer(ByteBuffer buf) {
         this.buf = buf;
