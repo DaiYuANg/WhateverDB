@@ -5,6 +5,7 @@ plugins {
   `java-library`
   kotlin("jvm") version libs.versions.kotlin
   alias(libs.plugins.lombok) apply false
+  alias(libs.plugins.versionCheck)
 }
 
 

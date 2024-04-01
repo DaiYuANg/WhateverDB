@@ -1,24 +1,24 @@
 package org.mapdb.record;
 
 import junit.framework.TestCase;
-import org.mapdb.db.DB;
+import org.mapdb.db.Mapdb;
 import org.mapdb.ser.Serializers;
 
 public class VarRecordTest extends TestCase {
 
-    DB db;
+    Mapdb mapdb;
     VarRecord<String> ai;
 
 
     @Override
     protected void setUp() throws Exception {
-        db = DB.Maker.memoryDB().make();
-        ai = new VarRecord.Maker(db, "test", Serializers.STRING).init("test").make();
+        mapdb = Mapdb.MapdbBuilder.memoryDB().make();
+        ai = new VarRecord.Maker(mapdb, "test", Serializers.STRING).init("test").make();
     }
 
     @Override
     protected void tearDown() throws Exception {
-        db.close();
+        mapdb.close();
     }
 
 
@@ -34,14 +34,14 @@ public class VarRecordTest extends TestCase {
      */
     public void testConstructor2() {
         try {
-            VarRecord<String> ai = new VarRecord.Maker(db, "test2", Serializers.STRING).make();
+            VarRecord<String> ai = new VarRecord.Maker(mapdb, "test2", Serializers.STRING).make();
             fail();
         } catch (NullPointerException e){
         }
     }
 
     public void testConstructor3() {
-        VarRecord<String> ai = new VarRecord.Maker(db, "test2", Serializers.STRING).init("aa").make();
+        VarRecord<String> ai = new VarRecord.Maker(mapdb, "test2", Serializers.STRING).init("aa").make();
         assertEquals("aa", ai.get());
     }
 

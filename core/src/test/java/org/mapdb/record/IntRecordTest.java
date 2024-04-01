@@ -7,24 +7,24 @@ package org.mapdb.record;/*
  */
 
 import junit.framework.TestCase;
-import org.mapdb.db.DB;
+import org.mapdb.db.Mapdb;
 
 
 public class IntRecordTest extends TestCase {
 
-    DB db;
+    Mapdb mapdb;
     IntRecord ai;
 
 
     @Override
     protected void setUp() throws Exception {
-        db = DB.Maker.memoryDB().make();
-        ai = new IntRecord.Maker(db,"test").init(1).make();
+        mapdb = Mapdb.MapdbBuilder.memoryDB().make();
+        ai = new IntRecord.Maker(mapdb,"test").init(1).make();
     }
 
     @Override
     protected void tearDown() throws Exception {
-        db.close();
+        mapdb.close();
     }
 
 
@@ -39,7 +39,7 @@ public class IntRecordTest extends TestCase {
      * default constructed initializes to zero
      */
     public void testConstructor2(){
-        IntRecord  ai = new IntRecord.Maker(db,"test2").make();
+        IntRecord  ai = new IntRecord.Maker(mapdb,"test2").make();
         assertEquals(0,ai.get());
     }
 

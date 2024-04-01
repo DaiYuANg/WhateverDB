@@ -31,3 +31,4 @@ gradleEnterprise {
 }
 include("core")
 include("cli")
+include("website")

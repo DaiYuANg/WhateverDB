@@ -15,6 +15,7 @@
  */
 package org.mapdb.store.legacy;
 
+import lombok.extern.slf4j.Slf4j;
 import org.mapdb.CC;
 import org.mapdb.io.DataOutput2ByteArray;
 import org.mapdb.ser.Serializer;
@@ -30,14 +31,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.logging.Logger;
 
 /**
  * Low level record store.
  */
+@Slf4j
 public abstract class Store2 implements Store {
-
-    protected static final Logger LOG = Logger.getLogger(Store.class.getName());
 
     public static final int VOLUME_CHUNK_SHIFT = 20; // 1 MB
 

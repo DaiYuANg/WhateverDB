@@ -22,6 +22,8 @@ asciidoctorRevealjs = { id = "org.asciidoctor.jvm.revealjs", version = "4.0.0-al
 asciidoctorEditconfig = { id = "org.asciidoctor.editorconfig", version.ref = "asciidoctor" }
 lombok = { id = "name.remal.lombok", version = "2.2.5" }
 graalVm = { id = "org.graalvm.buildtools.native", version = "0.10.1" }
+jmh = { id = "me.champeau.jmh", version = "0.7.2" }
+spotless = { id = "com.diffplug.gradle.spotless", version = "6.25.0" }
 
 [libraries]
 junitBom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }

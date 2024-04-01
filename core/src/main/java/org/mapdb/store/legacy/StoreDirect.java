@@ -15,6 +15,7 @@
  */
 package org.mapdb.store.legacy;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mapdb.CC;
@@ -123,6 +124,7 @@ import java.util.concurrent.locks.Lock;
  *
  * @author Jan Kotek
  */
+@Slf4j
 public class StoreDirect extends Store2 {
 
     protected static final long MASK_OFFSET = 0x0000FFFFFFFFFFF0L;
@@ -335,7 +337,7 @@ public class StoreDirect extends Store2 {
             long recid = (ioRecid-IO_USER_START)/8;
             assert(recid>0);
             if(CC.LOG_STORE)
-                LOG.finest("Preallocate recid=" + recid);
+                log.atInfo().log("Preallocate recid=" + recid);
             return recid;
         }finally {
             newRecidLock.readLock().unlock();
@@ -358,7 +360,7 @@ public class StoreDirect extends Store2 {
             lock.unlock();
         }
         if(CC.LOG_STORE)
-            LOG.finest("Update recid="+recid+", "+" size="+out.pos+", "+" val="+value+" ser="+serializer );
+            log.atInfo().log("Update recid="+recid+", "+" size="+out.pos+", "+" val="+value+" ser="+serializer );
 
     }
 
@@ -386,7 +388,7 @@ public class StoreDirect extends Store2 {
                 assert(recids[i]>0);
             }
             if(CC.LOG_STORE)
-                LOG.finest("Preallocate recids="+Arrays.toString(recids));
+                log.atInfo().log("Preallocate recids="+Arrays.toString(recids));
         }finally {
             newRecidLock.readLock().unlock();
         }
@@ -424,7 +426,7 @@ public class StoreDirect extends Store2 {
         long recid = (ioRecid-IO_USER_START)/8;
         assert(recid>0);
         if(CC.LOG_STORE)
-            LOG.finest("Put recid="+recid+", "+" size="+out.pos+", "+" val="+value+" ser="+serializer );
+            log.atInfo().log("Put recid="+recid+", "+" size="+out.pos+", "+" val="+value+" ser="+serializer );
         return recid;
     }
 
@@ -546,7 +548,7 @@ public class StoreDirect extends Store2 {
             lock.unlock();
         }
         if(CC.LOG_STORE)
-            LOG.finest("Update recid="+recid+", "+" size="+out.pos+", "+" val="+value+" ser="+serializer );
+            log.atInfo().log("Update recid="+recid+", "+" size="+out.pos+", "+" val="+value+" ser="+serializer );
     }
 
     @Override

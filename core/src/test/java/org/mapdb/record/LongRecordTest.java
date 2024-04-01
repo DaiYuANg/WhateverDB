@@ -7,22 +7,22 @@ package org.mapdb.record;/*
  */
 
 import junit.framework.TestCase;
-import org.mapdb.db.DB;
+import org.mapdb.db.Mapdb;
 
 public class LongRecordTest extends TestCase {
 
-    DB db;
+    Mapdb mapdb;
     LongRecord ai;
 
     @Override
     protected void setUp() throws Exception {
-        db = DB.Maker.memoryDB().make();
-        ai = new LongRecord.Maker(db,"test").init(1).make();
+        mapdb = Mapdb.MapdbBuilder.memoryDB().make();
+        ai = new LongRecord.Maker(mapdb,"test").init(1).make();
     }
 
     @Override
     protected void tearDown() throws Exception {
-        db.close();
+        mapdb.close();
     }
 
     /*
@@ -36,7 +36,7 @@ public class LongRecordTest extends TestCase {
      * default constructed initializes to zero
      */
     public void testConstructor2(){
-        LongRecord ai = new LongRecord.Maker(db,"test2").make();
+        LongRecord ai = new LongRecord.Maker(mapdb,"test2").make();
         assertEquals(0,ai.get());
     }
 

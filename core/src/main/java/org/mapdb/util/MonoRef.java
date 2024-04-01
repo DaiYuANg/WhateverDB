@@ -11,6 +11,4 @@ public class MonoRef<R> {
         this.ref = ref;
     }
 
-
-
 }

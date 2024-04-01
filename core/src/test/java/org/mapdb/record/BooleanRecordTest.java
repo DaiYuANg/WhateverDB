@@ -7,23 +7,22 @@
  */
 package org.mapdb.record;
 
-import junit.framework.TestCase;
-import org.mapdb.db.DB;
+import org.mapdb.db.Mapdb;
 
 public class BooleanRecordTest extends TestCase{
 
-    DB db;
+    Mapdb mapdb;
    BooleanRecord ai;
 
     @Override
     protected void setUp() throws Exception {
-        db = DB.Maker.memoryDB().make();
-        ai= new BooleanRecord.Maker(db, "test").init(true).make();
+        mapdb = Mapdb.MapdbBuilder.memoryDB().make();
+        ai= new BooleanRecord.Maker(mapdb, "test").init(true).make();
     }
 
     @Override
     protected void tearDown() throws Exception {
-        db.close();
+        mapdb.close();
     }
 
 
@@ -38,7 +37,7 @@ public class BooleanRecordTest extends TestCase{
      * default constructed initializes to false
      */
     public void testConstructor2() {
-        BooleanRecord ai = new BooleanRecord.Maker(db, "test2").make();
+        BooleanRecord ai = new BooleanRecord.Maker(mapdb, "test2").make();
         assertEquals(false,ai.get());
     }
 
@@ -100,7 +99,7 @@ public class BooleanRecordTest extends TestCase{
      * toString returns current value.
      */
     public void testToString() {
-        BooleanRecord ai = new BooleanRecord.Maker(db,"test2").make();
+        BooleanRecord ai = new BooleanRecord.Maker(mapdb,"test2").make();
         assertEquals(ai.toString(), Boolean.toString(false));
         ai.set(true);
         assertEquals(ai.toString(), Boolean.toString(true));

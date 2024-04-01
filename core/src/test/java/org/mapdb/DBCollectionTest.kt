@@ -5,7 +5,7 @@ import io.kotlintest.shouldBe
 import org.junit.Assert.assertTrue
 import org.mapdb.cli.Export
 import org.mapdb.cli.Import
-import org.mapdb.db.DB
+import org.mapdb.db.Mapdb
 import org.mapdb.io.DataInput2
 import org.mapdb.io.DataInput2ByteArray
 import org.mapdb.io.DataOutput2ByteArray
@@ -136,9 +136,9 @@ class DBCollectionTest: DBWordSpec({
     companion object {
 
         abstract class  Adapter<C>{
-            abstract fun open(db: DB, name:String, serializer: Serializer<*>):C
+            abstract fun open(mapdb: Mapdb, name:String, serializer: Serializer<*>):C
 
-            abstract fun import(db: DB, name:String, serializer: Serializer<*>, input: DataInput2):C
+            abstract fun import(mapdb: Mapdb, name:String, serializer: Serializer<*>, input: DataInput2):C
 
             abstract fun add(c:C, e:Any?)
 

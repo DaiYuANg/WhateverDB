@@ -1,12 +1,5 @@
 plugins {
-  id("java")
-}
-
-group = "org.mapdb.core"
-version = "unspecified"
-
-repositories {
-  mavenCentral()
+  alias(libs.plugins.jmh)
 }
 
 dependencies {
@@ -18,6 +11,6 @@ dependencies {
   implementation(libs.avajeInject)
   annotationProcessor(libs.avajeInjectGenerator)
   testImplementation(libs.avajeInjectTest)
-
+  implementation("org.lz4:lz4-java:1.8.0")
   implementation(libs.slf4j)
 }

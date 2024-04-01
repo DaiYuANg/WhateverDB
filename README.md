@@ -33,8 +33,8 @@ Hello world:
 
 ```java
 //import org.mapdb.*
-DB db = DBMaker.memoryDB().make();
-ConcurrentMap map = db.hashMap("map").make();
+DB mapdb = DBMaker.memoryDB().make();
+ConcurrentMap map = mapdb.hashMap("map").make();
 map.put("something", "here");
 ```
 

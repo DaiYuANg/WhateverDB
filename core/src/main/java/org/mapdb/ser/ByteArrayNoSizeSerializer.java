@@ -2,14 +2,9 @@ package org.mapdb.ser;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mapdb.DBException;
-import org.mapdb.io.DataInput2;
-import org.mapdb.io.DataOutput2;
 import org.mapdb.io.DataInput2;
 import org.mapdb.io.DataOutput2;
 
-import javax.print.DocFlavor;
-import java.io.IOException;
 import java.util.Arrays;
 
 /**

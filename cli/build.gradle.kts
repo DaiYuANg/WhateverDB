@@ -1,3 +1,6 @@
+plugins{
+  alias(libs.plugins.graalVm)
+}
 dependencies {
   implementation(libs.picocli)
   implementation(libs.picocliJline)

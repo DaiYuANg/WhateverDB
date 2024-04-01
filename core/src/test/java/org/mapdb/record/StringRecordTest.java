@@ -1,23 +1,23 @@
 package org.mapdb.record;
 
 import junit.framework.TestCase;
-import org.mapdb.db.DB;
+import org.mapdb.db.Mapdb;
 
 public class StringRecordTest extends TestCase {
 
-    DB db;
+    Mapdb mapdb;
     StringRecord ai;
 
 
     @Override
     protected void setUp() throws Exception {
-        db = DB.Maker.memoryDB().make();
-        ai = new StringRecord.Maker(db, "test").init("test").make();
+        mapdb = Mapdb.MapdbBuilder.memoryDB().make();
+        ai = new StringRecord.Maker(mapdb, "test").init("test").make();
     }
 
     @Override
     protected void tearDown() throws Exception {
-        db.close();
+        mapdb.close();
     }
 
 
@@ -32,7 +32,7 @@ public class StringRecordTest extends TestCase {
      * default constructed initializes to empty string
      */
     public void testConstructor2() {
-        StringRecord ai = new StringRecord.Maker(db, "test2").make();
+        StringRecord ai = new StringRecord.Maker(mapdb, "test2").make();
         assertEquals("", ai.get());
     }
 
