@@ -9,7 +9,7 @@ plugins {
 }
 
 
-val jdkVersion = libs.versions.jdkVersion.get()
+val jdkVersion: String = libs.versions.jdkVersion.get()
 
 val rlibs = rootProject.libs
 
@@ -23,11 +23,13 @@ allprojects {
 }
 
 subprojects {
-  apply<JavaLibraryPlugin>()
-  apply<KotlinPluginWrapper>()
-  apply<LombokPlugin>()
-  dependencies {
+  if (project.name != "website"){
+    apply<JavaLibraryPlugin>()
+    apply<KotlinPluginWrapper>()
+    apply<LombokPlugin>()
+
     dependencies {
+      implementation(rlibs.jetbrainsAnnotation)
       testImplementation(enforcedPlatform(rlibs.junitBom))
       testImplementation(rlibs.junitEngine)
       testImplementation(rlibs.junitPerf)
@@ -49,3 +51,5 @@ subprojects {
     }
   }
 }
+
+subprojects { parent!!.path.takeIf { it != rootProject.path }?.let { evaluationDependsOn(it) } }

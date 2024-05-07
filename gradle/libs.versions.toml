@@ -1,6 +1,6 @@
 [versions]
 jdkVersion = "21"
-kotlin = "1.9.23"
+kotlin = "2.0.0-RC2"
 junit = "5.10.2"
 testcontainers = "1.19.7"
 mockito = "5.11.0"
@@ -10,6 +10,8 @@ asciidoctor = "4.0.2"
 avajeInject = "9.12-RC2"
 picocli = "4.7.5"
 slf4j = "2.1.0-alpha1"
+vertx = "4.5.7"
+gestalt = "0.29.0"
 
 [plugins]
 versionCheck = { id = "com.github.ben-manes.versions", version = "0.51.0" }
@@ -24,6 +26,9 @@ lombok = { id = "name.remal.lombok", version = "2.2.5" }
 graalVm = { id = "org.graalvm.buildtools.native", version = "0.10.1" }
 jmh = { id = "me.champeau.jmh", version = "0.7.2" }
 spotless = { id = "com.diffplug.gradle.spotless", version = "6.25.0" }
+manifest = { id = "com.coditory.manifest", version = "0.2.6" }
+jlink = { id = "org.beryx.jlink", version = "3.0.1" }
+fatjar = { id = "io.github.goooler.shadow", version = "8.1.7" }
 
 [libraries]
 junitBom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
@@ -44,9 +49,11 @@ mockitoJunit = { group = "org.mockito", name = "mockito-junit-jupiter", version.
 apacheCommonIO = { group = "commons-io", name = "commons-io", version = "2.14.0" }
 apacheCommonLang3 = { group = "org.apache.commons", name = "commons-lang3", version = "3.14.0" }
 apacheCommonPool = { group = "org.apache.commons", name = "commons-pool2", version = "2.12.0" }
+apacheCommonCompress = { group = "org.apache.commons", name = "commons-compress", version = "1.26.1" }
+fury = { group = "org.apache.fury", name = "fury-core", version = "0.5.0" }
 
 jetbrainsAnnotation = { group = "org.jetbrains", name = "annotations", version = "24.1.0" }
-guava = { group = "com.google.guava", name = "guava", version = "33.1.0-jre" }
+guava = { group = "com.google.guava", name = "guava", version = "33.2.0-jre" }
 
 eclipseCollectionsAPI = { group = "org.eclipse.collections", name = "eclipse-collections-api", version.ref = "eclipseCollections" }
 eclipseCollections = { group = "org.eclipse.collections", name = "eclipse-collections", version.ref = "eclipseCollections" }
@@ -69,11 +76,33 @@ picocli = { group = "info.picocli", name = "picocli", version.ref = "picocli" }
 picocliJline = { group = "info.picocli", name = "picocli-shell-jline3", version.ref = "picocli" }
 picocliCodegen = { group = "info.picocli", name = "picocli-codegen", version.ref = "picocli" }
 
-dataFaker = { group = "net.datafaker", name = "datafaker", version = "2.1.0" }
+dataFaker = { group = "net.datafaker", name = "datafaker", version = "2.2.2" }
 
 slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4j" }
 slf4jJdkPlatform = { group = "org.slf4j", name = "slf4j-jdk-platform-logging", version.ref = "slf4j" }
 slf4jJulBridage = { group = "org.slf4j", name = "jul-to-slf4j", version.ref = "slf4j" }
 
 oshi = { group = "com.github.oshi", name = "oshi-core-java11", version = "6.5.0" }
-logback = { group = "ch.qos.logback", name = "logback-classic", version = "1.5.3" }
+logback = { group = "ch.qos.logback", name = "logback-classic", version = "1.5.6" }
+
+vertxCore = { group = "io.vertx", name = "vertx-core", version.ref = "vertx" }
+vertxWeb = { group = "io.vertx", name = "vertx-web", version.ref = "vertx" }
+vertxKotlin = { group = "io.vertx", name = "vertx-lang-kotlin", version.ref = "vertx" }
+vertxHazelcast = { group = "io.vertx", name = "vertx-hazelcast", version.ref = "vertx" }
+vertxRxjava3 = { group = "io.vertx", name = "vertx-rx-java3", version.ref = "vertx" }
+vertxJunit5 = { group = "io.vertx", name = "vertx-junit5", version.ref = "vertx" }
+vertxIOUring = { group = "io.vertx", name = "vertx-io_uring-incubator", version.ref = "vertx" }
+vertxTcpEventbusBridge = { group = "io.vertx", name = "vertx-tcp-eventbus-bridge", version.ref = "vertx" }
+
+rxjava3 = { group = "io.reactivex.rxjava3", name = "rxjava", version = "3.1.8" }
+
+mvstore = { group = "com.h2database", name = "h2-mvstore", version = "2.2.224" }
+
+gestaltConfig = { group = "com.github.gestalt-config", name = "gestalt-core", version.ref = "gestalt" }
+gestaltToml = { group = "com.github.gestalt-config", name = "gestalt-toml", version.ref = "gestalt" }
+gestaltYaml = { group = "com.github.gestalt-config", name = "gestalt-yaml", version.ref = "gestalt" }
+gestaltJSON = { group = "com.github.gestalt-config", name = "gestalt-json", version.ref = "gestalt" }
+gestaltGit = { group = "com.github.gestalt-config", name = "gestalt-git", version.ref = "gestalt" }
+gestaltKotlin = { group = "com.github.gestalt-config", name = "gestalt-kotlin", version.ref = "gestalt" }
+
+jansi = { group = "org.fusesource.jansi", name = "jansi", version = "2.4.1" }

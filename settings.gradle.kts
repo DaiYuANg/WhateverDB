@@ -29,6 +29,9 @@ gradleEnterprise {
         termsOfServiceAgree = "yes"
     }
 }
-include("core")
-include("cli")
+include("libs:core")
+include("libs:common")
+include("app:cli")
+include("app:server")
+
 include("website")
