@@ -27,6 +27,10 @@ dependencies {
   implementation(libs.picocliJline)
   annotationProcessor(libs.picocliCodegen)
   implementation(libs.vertxHazelcast)
+
+  implementation(libs.mutiny)
+  implementation(libs.mutinyVertx)
+
   annotationProcessor(libs.avajeInjectGenerator)
 
   implementation(projects.libs.core)

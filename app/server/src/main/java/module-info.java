@@ -14,13 +14,14 @@ module org.mapdb.server {
   requires java.transaction.xa;
   requires org.slf4j.jdk.platform.logging;
   requires jul.to.slf4j;
+  requires io.smallrye.mutiny.vertx.core;
+  requires io.smallrye.mutiny;
 
   opens org.mapdb.server.command to info.picocli;
   exports org.mapdb.server to info.picocli;
   exports org.mapdb.server.factory to info.picocli;
   exports org.mapdb.server.context to info.picocli;
   exports org.mapdb.server.provider to info.picocli;
-  exports org.mapdb.server.handler to info.picocli;
 
   provides io.avaje.inject.spi.Module with org.mapdb.server.ServerModule;
 }

@@ -106,3 +106,7 @@ gestaltGit = { group = "com.github.gestalt-config", name = "gestalt-git", versio
 gestaltKotlin = { group = "com.github.gestalt-config", name = "gestalt-kotlin", version.ref = "gestalt" }
 
 jansi = { group = "org.fusesource.jansi", name = "jansi", version = "2.4.1" }
+
+
+mutiny = { group = "io.smallrye.reactive", name = "mutiny", version = "2.0.0" }
+mutinyVertx = { group = "io.smallrye.reactive", name = "smallrye-mutiny-vertx-core", version = "3.0.0" }
