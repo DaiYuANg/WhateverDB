@@ -7,7 +7,8 @@ module org.mapdb.server {
   requires org.jetbrains.annotations;
   requires info.picocli;
   requires io.reactivex.rxjava3;
-  requires org.mapdb.core;
+  requires org.whatever.db.core;
+  requires org.whatever.db.api;
   requires org.github.gestalt.core;
   requires org.github.gestalt.yaml;
   requires io.vertx.clustermanager.hazelcast;
@@ -16,6 +17,7 @@ module org.mapdb.server {
   requires jul.to.slf4j;
   requires io.smallrye.mutiny.vertx.core;
   requires io.smallrye.mutiny;
+  requires com.hazelcast.core;
 
   opens org.mapdb.server.command to info.picocli;
   exports org.mapdb.server to info.picocli;

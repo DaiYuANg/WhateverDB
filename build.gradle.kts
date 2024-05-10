@@ -1,13 +1,12 @@
 import name.remal.gradle_plugins.lombok.LombokPlugin
-import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 
 plugins {
   `java-library`
-  kotlin("jvm") version libs.versions.kotlin
   alias(libs.plugins.lombok) apply false
   alias(libs.plugins.versionCheck)
 }
 
+group = "org.whatever.db"
 
 val jdkVersion: String = libs.versions.jdkVersion.get()
 
@@ -25,7 +24,7 @@ allprojects {
 subprojects {
   if (project.name != "website"){
     apply<JavaLibraryPlugin>()
-    apply<KotlinPluginWrapper>()
+//    apply<KotlinPluginWrapper>()
     apply<LombokPlugin>()
 
     dependencies {
@@ -46,9 +45,9 @@ subprojects {
       targetCompatibility = JavaVersion.toVersion(jdkVersion)
     }
 
-    kotlin {
-      jvmToolchain(jdkVersion.toInt())
-    }
+//    kotlin {
+//      jvmToolchain(jdkVersion.toInt())
+//    }
   }
 }
 

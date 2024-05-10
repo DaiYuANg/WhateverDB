@@ -1,0 +1,3 @@
+= Whatever DB
+
+WhateverDB is a database that is designed to be used by developers.

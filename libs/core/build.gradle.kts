@@ -2,6 +2,8 @@ plugins {
   alias(libs.plugins.jmh)
 }
 
+group = "org.whatever.db.core"
+
 dependencies {
   implementation(libs.fastutil)
   implementation(libs.guava)
@@ -9,9 +11,7 @@ dependencies {
   implementation(libs.eclipseCollections)
   implementation(libs.eclipseCollectionsAPI)
   implementation(libs.eclipseCollectionsForkjoin)
-  implementation(libs.avajeInject)
-  annotationProcessor(libs.avajeInjectGenerator)
-  testImplementation(libs.avajeInjectTest)
+  implementation(projects.libs.api)
   implementation("org.lz4:lz4-java:1.8.0")
   implementation(libs.slf4j)
   implementation(libs.apacheCommonLang3)

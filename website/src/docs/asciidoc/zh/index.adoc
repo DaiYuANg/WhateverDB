@@ -1,0 +1,3 @@
+= WhateverDB
+
+WhateverDB 是一个专门为 多种场景下设计的 NO-SQL 数据库

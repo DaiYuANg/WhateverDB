@@ -4,6 +4,8 @@ plugins {
   alias(libs.plugins.manifest)
   alias(libs.plugins.jlink)
   alias(libs.plugins.fatjar)
+  alias(libs.plugins.docker)
+  alias(libs.plugins.dockerJavaApplication)
 }
 
 val mainClassPath = "org.mapdb.server.Application"
@@ -24,7 +26,7 @@ dependencies {
   implementation(libs.logback)
   implementation(libs.rxjava3)
   implementation(libs.picocli)
-  implementation(libs.picocliJline)
+  implementation(projects.libs.api)
   annotationProcessor(libs.picocliCodegen)
   implementation(libs.vertxHazelcast)
 
@@ -42,6 +44,43 @@ dependencies {
   implementation(libs.gestaltConfig)
   implementation(libs.gestaltGit)
 
+  implementation(projects.libs.heapBufferStore)
+
   testImplementation(libs.vertxJunit5)
 }
 
+docker {
+  javaApplication {
+    baseImage = "ghcr.io/graalvm/jdk-community:22"
+    jvmArgs.addAll("-Xms256m", "-Xmx2048m")
+  }
+}
+
+jlink {
+  options.addAll("--strip-debug", "--compress", "2", "--no-header-files")
+  enableCds()
+  mainClass = mainClassPath
+  moduleName = group.toString()
+  addExtraDependencies(
+    "io.vertx.clustermanager.hazelcast",
+    "java.transaction.xa",
+    "io.vertx"
+  )
+  launcher {
+    name = "WhateverDB"
+  }
+  jpackage {
+    skipInstaller = true
+  }
+  customImage {
+    jdkModules.addAll(listOf("jdk.management.agent", "java.transaction.xa"))
+  }
+  mergedModule {
+    requires("io.vertx.core")
+  }
+}
+
+tasks.shadowJar {
+  minimize()
+  mergeServiceFiles()
+}

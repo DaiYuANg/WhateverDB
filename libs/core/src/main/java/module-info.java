@@ -1,4 +1,4 @@
-module org.mapdb.core {
+module org.whatever.db.core {
   requires org.slf4j;
   requires static lombok;
   requires static org.jetbrains.annotations;
@@ -6,16 +6,12 @@ module org.mapdb.core {
   requires org.eclipse.collections.impl;
   requires org.lz4.java;
   requires com.google.common;
-  requires io.avaje.inject;
-  requires kotlin.stdlib;
   requires org.apache.fury.core;
   requires java.sql;
+  requires org.whatever.db.api;
 
-  exports org.mapdb.core.store;
-  exports org.mapdb.core.exception;
-  exports org.mapdb.core.config;
-  exports org.mapdb.core;
-  exports org.mapdb.core.ser;
-
-  provides io.avaje.inject.spi.Module with org.mapdb.core.factory.FactoryModule;
+  exports org.whatever.db.core.store;
+  exports org.whatever.db.core.config;
+  exports org.whatever.db.core;
+  exports org.whatever.db.core.ser;
 }
