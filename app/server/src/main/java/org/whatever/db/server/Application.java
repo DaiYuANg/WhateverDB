@@ -1,8 +1,8 @@
-package org.mapdb.server;
+package org.whatever.db.server;
 
 import lombok.extern.slf4j.Slf4j;
-import org.mapdb.server.command.ServerCommand;
-import org.mapdb.server.factory.CommandFactory;
+import org.whatever.db.server.command.ServerCommand;
+import org.whatever.db.server.factory.CommandFactory;
 import picocli.CommandLine;
 
 @Slf4j

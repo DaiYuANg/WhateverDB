@@ -1,4 +1,4 @@
-package org.mapdb.server.verticle;
+package org.whatever.db.server.verticle;
 
 import io.avaje.inject.Component;
 import io.avaje.inject.Prototype;

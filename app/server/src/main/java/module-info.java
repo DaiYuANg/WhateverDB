@@ -9,6 +9,7 @@ module org.mapdb.server {
   requires io.reactivex.rxjava3;
   requires org.whatever.db.core;
   requires org.whatever.db.api;
+  requires org.github.gestalt.toml;
   requires org.github.gestalt.core;
   requires org.github.gestalt.yaml;
   requires io.vertx.clustermanager.hazelcast;
@@ -19,11 +20,11 @@ module org.mapdb.server {
   requires io.smallrye.mutiny;
   requires com.hazelcast.core;
 
-  opens org.mapdb.server.command to info.picocli;
-  exports org.mapdb.server to info.picocli;
-  exports org.mapdb.server.factory to info.picocli;
-  exports org.mapdb.server.context to info.picocli;
-  exports org.mapdb.server.provider to info.picocli;
+  opens org.whatever.db.server.command to info.picocli;
+  exports org.whatever.db.server to info.picocli;
+  exports org.whatever.db.server.factory to info.picocli;
+  exports org.whatever.db.server.context to info.picocli;
+  exports org.whatever.db.server.provider to info.picocli;
 
-  provides io.avaje.inject.spi.Module with org.mapdb.server.ServerModule;
+  provides io.avaje.inject.spi.Module with org.whatever.db.server.ServerModule;
 }

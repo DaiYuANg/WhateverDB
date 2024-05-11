@@ -1,6 +1,6 @@
-package org.mapdb.server.factory;
+package org.whatever.db.server.factory;
 
-import org.mapdb.server.context.DIContext;
+import org.whatever.db.server.context.DIContext;
 import picocli.CommandLine;
 
 import java.util.NoSuchElementException;

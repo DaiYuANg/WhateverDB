@@ -8,7 +8,7 @@ plugins {
   alias(libs.plugins.dockerJavaApplication)
 }
 
-val mainClassPath = "org.mapdb.server.Application"
+val mainClassPath = "org.whatever.db.server.Application"
 application {
   applicationDefaultJvmArgs = devJvmArguments
   mainClass = mainClassPath
@@ -37,11 +37,11 @@ dependencies {
 
   implementation(projects.libs.core)
 
+  implementation(libs.gestaltConfig)
   implementation(libs.gestaltToml)
   implementation(libs.gestaltYaml)
-  implementation(libs.gestaltKotlin)
+//  implementation(libs.gestaltKotlin)
   implementation(libs.gestaltJSON)
-  implementation(libs.gestaltConfig)
   implementation(libs.gestaltGit)
 
   implementation(projects.libs.heapBufferStore)

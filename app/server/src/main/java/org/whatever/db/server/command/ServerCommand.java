@@ -1,9 +1,9 @@
-package org.mapdb.server.command;
+package org.whatever.db.server.command;
 
 import io.avaje.inject.Component;
 import lombok.RequiredArgsConstructor;
-import org.mapdb.server.provider.ManifestVersionProvider;
-import org.mapdb.server.MapDBServer;
+import org.whatever.db.server.provider.ManifestVersionProvider;
+import org.whatever.db.server.MapDBServer;
 import picocli.CommandLine;
 
 @CommandLine.Command(name = "MapDbServer", helpCommand = true, versionProvider = ManifestVersionProvider.class)

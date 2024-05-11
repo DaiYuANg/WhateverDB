@@ -11,7 +11,7 @@ avajeInject = "10.0-RC3"
 picocli = "4.7.6"
 slf4j = "2.1.0-alpha1"
 vertx = "4.5.7"
-gestalt = "0.29.0"
+gestalt = "0.25.0"
 dockerPlugin = "9.4.0"
 
 [plugins]
@@ -96,6 +96,7 @@ vertxKotlin = { group = "io.vertx", name = "vertx-lang-kotlin", version.ref = "v
 vertxHazelcast = { group = "io.vertx", name = "vertx-hazelcast", version.ref = "vertx" }
 vertxRxjava3 = { group = "io.vertx", name = "vertx-rx-java3", version.ref = "vertx" }
 vertxJunit5 = { group = "io.vertx", name = "vertx-junit5", version.ref = "vertx" }
+vertxWebValidation = { group = "io.vertx", name = "vertx-web-validation", version.ref = "vertx" }
 vertxIOUring = { group = "io.vertx", name = "vertx-io_uring-incubator", version.ref = "vertx" }
 vertxTcpEventbusBridge = { group = "io.vertx", name = "vertx-tcp-eventbus-bridge", version.ref = "vertx" }
 

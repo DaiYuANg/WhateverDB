@@ -1,4 +1,4 @@
-package org.mapdb.server;
+package org.whatever.db.server;
 
 import io.avaje.inject.Component;
 import io.avaje.inject.PostConstruct;

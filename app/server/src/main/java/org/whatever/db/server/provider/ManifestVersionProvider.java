@@ -1,4 +1,4 @@
-package org.mapdb.server.provider;
+package org.whatever.db.server.provider;
 
 import lombok.val;
 import org.jetbrains.annotations.NotNull;

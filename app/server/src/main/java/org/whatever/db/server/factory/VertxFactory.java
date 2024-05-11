@@ -1,4 +1,4 @@
-package org.mapdb.server.factory;
+package org.whatever.db.server.factory;
 
 import com.hazelcast.config.Config;
 import io.avaje.inject.Bean;

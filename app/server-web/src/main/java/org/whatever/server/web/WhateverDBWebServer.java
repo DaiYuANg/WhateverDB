@@ -1,5 +1,6 @@
 package org.whatever.server.web;
 
+import io.avaje.inject.PostConstruct;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
@@ -23,14 +24,18 @@ public class WhateverDBWebServer {
 
   private final HttpServer httpServer;
 
-  public WhateverDBWebServer(@NotNull Vertx vertx, Router router) {
+  public WhateverDBWebServer(@NotNull Vertx vertx, @NotNull Router router) {
     this.httpServer = vertx.createHttpServer();
     this.router = router;
-    val messageRoute = router.get("/api/message"); // (1)
-    messageRoute.handler(rc -> {
-      rc.response().end("Hello React from Vert.x!"); // (2)
-    });
-    router.get().handler(StaticHandler.create()); // (3)
+
+  }
+
+  @PostConstruct
+  void init(){
+    val messageRoute = router.get("/api/message");
+    messageRoute.handler(rc -> rc.response().end("Hello React from Vert.x!"));
+    val sh = StaticHandler.create().setIndexPage("index.html");
+    router.get().handler(sh);
   }
 
   public void start() {

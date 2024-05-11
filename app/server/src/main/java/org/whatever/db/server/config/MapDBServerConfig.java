@@ -1,4 +1,4 @@
-package org.mapdb.server.config;
+package org.whatever.db.server.config;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
